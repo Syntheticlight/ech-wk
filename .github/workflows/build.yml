@@ -95,6 +95,18 @@ jobs:
             enable_gui: false
             cgo_enabled: "0"
 
+          - os: ubuntu-latest
+            goos: linux
+            goarch: arm
+            goarm: "7"
+            exe_ext: ""
+            archive_format: tar.gz
+            archive_ext: .tar.gz
+            target: softrouter
+            artifact_suffix: "-softrouter"
+            enable_gui: false
+            cgo_enabled: "0"
+
     runs-on: ${{ matrix.os }}
     
     steps:
@@ -116,6 +128,7 @@ jobs:
         env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
+          GOARM: ${{ matrix.goarm }}
           CGO_ENABLED: ${{ matrix.cgo_enabled }}
         run: |
           echo "Building for $GOOS/$GOARCH (target=${{ matrix.target }}, CGO_ENABLED=$CGO_ENABLED)"
