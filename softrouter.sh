@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-REPO_OWNER="byJoey"
+REPO_OWNER="syntheticlight"
 REPO_NAME="ech-wk"
 BIN_PATH="/usr/bin/ech-workers"
 CONF_FILE="/etc/ech-workers.conf"
