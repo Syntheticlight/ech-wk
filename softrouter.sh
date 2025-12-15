@@ -70,6 +70,7 @@ get_arch() {
     case "$arch" in
         x86_64) echo "amd64" ;;
         aarch64) echo "arm64" ;;
+        armv7*|arm) echo "arm" ;;
         *) echo "$arch" ;;
     esac
 }
@@ -127,7 +128,7 @@ get_latest_release_url() {
     rm -f "$api_response_file"
 
     ARCH=$(get_arch)
-    if [ "$ARCH" != "amd64" ] && [ "$ARCH" != "arm64" ]; then
+    if [ "$ARCH" != "amd64" ] && [ "$ARCH" != "arm64" ] && [ "$ARCH" != "arm" ]; then
         echo "错误: 不支持的系统架构: $ARCH" >&2
         return 1
     fi
